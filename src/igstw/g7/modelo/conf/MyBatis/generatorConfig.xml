@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration >
+	<classPathEntry location="C:\Users\Sawakita\Desktop\mysql-connector-java-5.0.8-bin.jar" />
+  
+  <context id="context1" >
+    <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://localhost:3306/generador" userId="root" password="root" />
+    <javaModelGenerator targetPackage="igstw.g7.modelo.pojos" targetProject="ProyectoGeneraArchivos\src" >
+    	<property name="enableSubPackages" value="true" />
+      	<property name="trimStrings" value="true" />
+    </javaModelGenerator>
+    <sqlMapGenerator targetPackage="igstw.g7.modelo.mappers" targetProject="ProyectoGeneraArchivos\src" >
+    <property name="enableSubPackages" value="true" />
+    </sqlMapGenerator>
+    <javaClientGenerator targetPackage="igstw.g7.modelo.dao" targetProject="ProyectoGeneraArchivos\src" type="XMLMAPPER" >
+    	<property name="enableSubPackages" value="true"/>
+    </javaClientGenerator>
+    <table schema="generador" tableName="usuario" >
+      <columnOverride column="u_cod" property="u_cod" />
+      <columnOverride column="u_nom" property="u_nom" />
+      <columnOverride column="u_ape_pat" property="u_ape_pat" />
+      <columnOverride column="u_ape_mat" property="u_ape_mat" />
+      <columnOverride column="u_con" property="u_con" />
+      <columnOverride column="u_estado" property="u_estado" />
+      <columnOverride column="rol_id" property="rol_id" />
+    </table>
+    <table schema="generador" tableName="plantilla" >
+      <columnOverride column="p_id" property="p_id" />
+      <columnOverride column="p_nombre" property="p_nombre" />
+      <columnOverride column="p_consulta_select" property="p_consulta_select" />
+      <columnOverride column="p_consulta_order" property="p_consulta_order" />
+      <columnOverride column="p_n_header" property="p_n_header" />
+      <columnOverride column="p_n_detail" property="p_n_detail" />
+      <columnOverride column="p_n_footer" property="p_n_footer" />
+      <columnOverride column="p_estado" property="p_estado" />
+    </table>
+  </context>
+</generatorConfiguration>
