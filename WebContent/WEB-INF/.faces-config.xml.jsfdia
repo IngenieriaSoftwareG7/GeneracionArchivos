@@ -1,2 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<PROCESS model-entity="JSFProcess"/>
+<PROCESS model-entity="JSFProcess">
+ <PROCESS-ITEM NAME="rules:#vistas#iniciarSesion.xhtml"
+  PATH="/vistas/iniciarSesion.xhtml" SHAPE="32,17,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#vistas#iniciarSesion.xhtml:0" NAME="item"
+   PATH="/vistas/iniciarSesion.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="irAMenuAdministrador::#vistas#administrador#menuAdministrador.xhtml"
+    NAME="output" PATH="/vistas/administrador/menuAdministrador.xhtml"
+    TARGET="rules:#vistas#administrador#menuAdministrador.xhtml"
+    TITLE="irAMenuAdministrador" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="irAMenuOperador::#vistas#operador#menuOperador.xhtml"
+    NAME="output1" PATH="/vistas/operador/menuOperador.xhtml"
+    TARGET="rules:#vistas#operador#menuOperador.xhtml"
+    TITLE="irAMenuOperador" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM
+  NAME="rules:#vistas#administrador#menuAdministrador.xhtml"
+  PATH="/vistas/administrador/menuAdministrador.xhtml"
+  SHAPE="256,33,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#vistas#operador#menuOperador.xhtml"
+  PATH="/vistas/operador/menuOperador.xhtml" SHAPE="256,177,0,0" model-entity="JSFProcessGroup"/>
+</PROCESS>

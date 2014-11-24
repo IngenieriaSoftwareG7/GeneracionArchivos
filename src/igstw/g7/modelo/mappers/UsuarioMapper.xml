@@ -1,8 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="UsuarioMapper" >
-  <select id="obtenerUsuario" resultType="igstw.g7.modelo.pojos.Usuario" parameterType="igstw.g7.modelo.pojos.Usuario">
+<mapper namespace="igstw.g7.modelo.mappers.UsuarioMapper" >
+  <resultMap id="usuarioResultadoMapa" type="igstw.g7.modelo.pojos.Usuario">
+		<id property="u_cod" column="u_cod" />
+		<result property="u_nom" column="u_nom"/>
+		<result property="u_ape_pat" column="u_ape_pat"/>
+		<result property="u_ape_mat" column="u_ape_mat"/>
+		<result property="u_con" column="u_con"/>
+		<result property="u_estado" column="u_estado"/>
+		<association property="rol" column="rol_id" javaType="RolAlias" select="seleccionarRoles"/>
+	</resultMap>
+	<select id="obtenerUsuario" parameterType="UsuarioAlias" resultMap="usuarioResultadoMapa" >
+  		<!-- <select id="obtenerUsuario" resultType="igstw.g7.modelo.pojos.Usuario" parameterType="igstw.g7.modelo.pojos.Usuario"> -->
         select * from usuario 
         where u_cod=#{u_cod,jdbcType=VARCHAR} and u_con=#{u_con,jdbcType=VARCHAR}
     </select>
+    <select id="seleccionarRoles" parameterType="int" resultType="RolAlias">
+		select * from rol where r_id = #{r_id}
+	</select>
 </mapper>

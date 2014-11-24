@@ -5,6 +5,7 @@ import java.io.Serializable;
 import org.apache.ibatis.session.SqlSession;
 
 import igstw.g7.modelo.conf.MyBatis.MyBatisUtil;
+import igstw.g7.modelo.mappers.UsuarioMapper;
 import igstw.g7.modelo.pojos.Usuario;
 
 public class UsuarioDaoImpl implements Serializable,UsuarioDao{
@@ -18,7 +19,9 @@ public class UsuarioDaoImpl implements Serializable,UsuarioDao{
         SqlSession session=new MyBatisUtil().getSession();
         if(session!=null){
             try{
-                usuario=session.selectOne("UsuarioMapper.obtenerUsuario",usuarioFormu);
+            	UsuarioMapper usuarioMapper = session.getMapper(UsuarioMapper.class);
+            	usuario = usuarioMapper.obtenerUsuario(usuarioFormu);
+            	//usuario=session.selectOne("UsuarioMapper.obtenerUsuario",usuarioFormu);
             }
             catch(Exception e){
             	e.printStackTrace();

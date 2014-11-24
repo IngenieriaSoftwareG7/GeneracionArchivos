@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head></h:head>
+<h:body>
+
+	<h:form method="post">
+
+		<p:growl id="growl" showDetail="true" life="3000" />
+
+		<p:panel header="Nueva plantilla" style="width: 1000px;height:800px;
+			position: absolute;
+  			top: 50%;left:50%;margin-top:-250px;margin-left:-500px">
+			
+			<p>Usuario:Oshoaaaaaa    Rol: Administrador</p>
+			
+			<hr></hr>
+			
+			<p:dataTable var="car" value="#{dtBasicView.cars}">
+    			<p:column headerText="FECHA">
+        		<h:outputText value="#{car.id}" />
+    			</p:column>
+ 
+    			<p:column headerText="NOMBRE">
+        		<h:outputText value="#{car.year}" />
+    			</p:column>
+ 
+    			<p:column headerText="ESTADO">
+        		<h:outputText value="#{car.brand}" />
+    			</p:column>
+ 
+    			<p:column headerText="HEADER">
+        		<h:outputText value="#{car.color}" />
+    			</p:column>
+    			
+    			<p:column headerText="DETAIL">
+        		<h:outputText value="#{car.color}" />
+    			</p:column>
+    			
+    			<p:column headerText="FOOTER">
+        		<h:outputText value="#{car.color}" />
+    			</p:column>
+			</p:dataTable>
+			
+			<p:button value="Consulta"></p:button>
+ 			<p:button value="Nuevo"></p:button>
+ 			<p:button value="Modificar"></p:button>
+ 			<p:button value="Eliminar"></p:button>
+ 						
+		</p:panel>
+	</h:form>
+</h:body>
+</html>

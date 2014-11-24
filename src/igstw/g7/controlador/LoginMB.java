@@ -13,44 +13,82 @@ import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpSession;
 
-import org.primefaces.context.RequestContext;
-
-
 @ManagedBean
 @SessionScoped
-public class LoginMB implements Serializable{
-	
+public class LoginMB implements Serializable {
+
 	private static final long serialVersionUID = 1L;
 	private Usuario usuarioFormu;
 	private UsuarioDao usuarioDao;
-	
-	public LoginMB(){
+	private final int MENU_ADMINISTRADOR = 1;
+	private final int MENU_OPERADOR = 2;
+	private final String USUARIO_ACTIVO = "A";
+	private final String USUARIO_INACTIVO = "I";
+
+	public LoginMB() {
 		init();
 		System.out.println("Hola mundo");
 	}
-	
+
 	private void init() {
-		usuarioFormu=new Usuario();
-		usuarioDao=new UsuarioDaoImpl();
+		usuarioFormu = new Usuario();
+		usuarioDao = new UsuarioDaoImpl();
 	}
 
-	//Metodos de managed bean
+	public void validarDatos() {
+
+		// /FacesContext.getCurrentInstance().
+		// addMessage(null,new FacesMessage(FacesMessage.SEVERITY_ERROR,
+		// "USUARIO NO EXISTE EN EL SISTEMA", "Error en usuario y/o clave"));
+	}
+
+	// Metodos de managed bean
 	public String iniciarSesion(){
+		String paginaDireccionada="";
 		usuarioFormu=usuarioDao.obtenerUsuario(usuarioFormu);
+		HttpSession session=null;
 		if(usuarioFormu==null){
             usuarioFormu=new Usuario();
 			FacesContext.getCurrentInstance().
-            addMessage(null,new FacesMessage(FacesMessage.SEVERITY_ERROR, "USUARIO NO EXISTE EN EL SISTEMA", "Error en usuario y/o clave"));
+            addMessage("sesionValidacion",new FacesMessage(FacesMessage.SEVERITY_ERROR, "USUARIO NO EXISTE EN EL SISTEMA", "Error en usuario y/o clave"));
+			paginaDireccionada="";
 			}
-		else
-			FacesContext.getCurrentInstance().
-            addMessage(null,new FacesMessage(FacesMessage.SEVERITY_INFO, "BIENVENIDO AL SISTEMA", "usuario y/o clave correctos"));
-		return "";
-	}
+		else{
+			if(usuarioFormu.getU_estado().equals(USUARIO_ACTIVO)){
+				if(usuarioFormu.getRol().getR_id()!=null){
+					if(usuarioFormu.getRol().getR_id().intValue()==MENU_ADMINISTRADOR){
+						session = Util.getSession();
+						session.setAttribute("username", usuarioFormu.getNombreCompleto());
+						session.setAttribute("rol", usuarioFormu.getRol().getR_des());
+						paginaDireccionada="irAMenuAdministrador";
+					}
+					else if(usuarioFormu.getRol().getR_id().intValue()==MENU_OPERADOR){
+						session = Util.getSession();
+						session.setAttribute("username", usuarioFormu.getNombreCompleto());
+						session.setAttribute("rol", usuarioFormu.getRol().getR_des());
+						paginaDireccionada="irAMenuOperador";
+						}
+					}
+					else{
+						FacesContext.getCurrentInstance().
+			            addMessage("sesionValidacion",new FacesMessage(FacesMessage.SEVERITY_ERROR, "USUARIO NO TIENE ROL", "EL USUARIO NO SE ENCUENTRA CON ALGUN ROL ASOCIADO"));
+						}
+				}
+			else if(usuarioFormu.getU_estado().equals(USUARIO_INACTIVO)){
+				FacesContext.getCurrentInstance().
+	            addMessage("sesionValidacion",new FacesMessage(FacesMessage.SEVERITY_ERROR, "USUARIO INACTIVO", "EL USUARIO SE ENCUENTRA INACTIVO"));
+				}
+			
+				}
+			
+			
+			return paginaDireccionada;
 
-	public String cerrarSesion(){
+		}
+
+	public String cerrarSesion() {
 		HttpSession session = Util.getSession();
-	    session.invalidate();
+		session.invalidate();
 		return "iniciarSesion";
 	}
 
@@ -61,5 +99,5 @@ public class LoginMB implements Serializable{
 	public void setUsuarioFormu(Usuario usuarioFormu) {
 		this.usuarioFormu = usuarioFormu;
 	}
-	
+
 }

@@ -9,22 +9,22 @@
 
 	<h:form method="post">
 
-		<p:growl id="growl" showDetail="true" life="3000" />
-
+	
 		<p:panel header="Inicio Sesion" style="width: 400px;height:200px;
 			position: absolute;
   			top: 50%;left:50%;margin-top: -100px;margin-left:-200px">
+  			<p:messages id="msgs"/>	
 			<h:panelGrid columns="2">
 				<h:outputLabel for="usuario" value="Usuario: " />
 				<p:inputText id="usuario" value="#{loginMB.usuarioFormu.u_cod}"
-					required="true" label="usuario" />
+					required="true" requiredMessage="Ingresar Usuario" label="usuario" />
 				
 				<h:outputLabel for="clave" value="Clave: " />
 				<p:password id="clave" value="#{loginMB.usuarioFormu.u_con}"
-					required="true" label="clave" />
+					required="true" requiredMessage="Ingresar Clave" label="clave" />
 
 				<f:facet name="footer">
-					<p:commandButton value="Iniciar Sesion" update="growl"
+					<p:commandButton value="Iniciar Sesion" update="msgs"
 						action="#{loginMB.iniciarSesion}" />
 				</f:facet>
 
