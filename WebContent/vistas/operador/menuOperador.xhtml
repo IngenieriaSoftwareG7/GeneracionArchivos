@@ -3,9 +3,23 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:p="http://primefaces.org/ui"
-	xmlns:f="http://java.sun.com/jsf/core">
-<h:head></h:head>
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	>
+<h:head><title>Menu Operador</title>
+  	<link rel="stylesheet" type="text/css" href="../../recursos/css/estructuraMenu.css" /></h:head>
 <h:body>
-<h1>Bienvenido Operador</h1>
+
+	<div id="wrapper">
+		<div id="header">
+		<ui:include src="/vistas/headerPage.xhtml"/>
+		</div>
+		<div id="body">
+		<ui:include src="/vistas/operador/listarPlantillas.xhtml" />
+		</div>
+		<div id="footer">
+		<ui:include src="/vistas/footerPage.xhtml"/>
+		</div>
+	</div>
 </h:body>
 </html>

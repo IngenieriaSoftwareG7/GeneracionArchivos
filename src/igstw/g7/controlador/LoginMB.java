@@ -27,7 +27,6 @@ public class LoginMB implements Serializable {
 
 	public LoginMB() {
 		init();
-		System.out.println("Hola mundo");
 	}
 
 	private void init() {
@@ -89,7 +88,7 @@ public class LoginMB implements Serializable {
 	public String cerrarSesion() {
 		HttpSession session = Util.getSession();
 		session.invalidate();
-		return "iniciarSesion";
+		return "cerrarSesion";
 	}
 
 	public Usuario getUsuarioFormu() {

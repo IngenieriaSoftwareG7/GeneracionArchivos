@@ -1,0 +1,22 @@
+<ui:composition 
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"    
+    >
+	    	<h:form>
+		    	<p:panel style="overflow: hidden;">
+		    	<h:outputText style="float:left;color:blue;font: 140% Verdana,Arial,Helvetica,sans-serif;" value="SISTEMA GENERACION DE ARCHIVOS(SGA)" />
+		    	<p:panel style="float:right;">
+		    		<p:graphicImage value="../../recursos/imagen/login.png" />
+					<h:outputLabel style="color:blue" value="Usuario:" />
+					#{loginMB.usuarioFormu.u_cod}
+					<h:outputLabel style="color:blue" value="Rol:" />
+					#{loginMB.usuarioFormu.rol.r_des}
+					<p:commandButton action="#{loginMB.cerrarSesion}"
+						icon="ui-icon-extlink" value="Cerrar Sesion" />
+				</p:panel>
+				</p:panel>	
+			</h:form>
+</ui:composition>
