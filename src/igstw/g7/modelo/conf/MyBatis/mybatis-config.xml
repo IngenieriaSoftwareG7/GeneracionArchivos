@@ -6,6 +6,7 @@ PUBLIC "-//mybatis.org//DTD 3.0//EN"
 <configuration>
 	<typeAliases>
   		<typeAlias type='igstw.g7.modelo.pojos.Usuario' alias='UsuarioAlias'/>	
+  		<typeAlias type='igstw.g7.modelo.pojos.Plantilla' alias='PlantillaAlias'/>	
   		<typeAlias type='igstw.g7.modelo.pojos.Rol' alias='RolAlias'/>
 	</typeAliases>
     <environments default="development">
@@ -22,6 +23,7 @@ PUBLIC "-//mybatis.org//DTD 3.0//EN"
     
     <mappers>
         <mapper resource="igstw/g7/modelo/mappers/UsuarioMapper.xml" />
+        <mapper resource="igstw/g7/modelo/mappers/PlantillaMapper.xml" />
     </mappers>
     
 </configuration>

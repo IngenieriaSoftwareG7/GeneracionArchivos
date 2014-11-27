@@ -10,6 +10,8 @@ USE `generador`;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
 /*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
@@ -37,6 +39,10 @@ CREATE TABLE `configuracion_plantilla` (
 -- Dumping data for table `configuracion_plantilla`
 --
 
+LOCK TABLES `configuracion_plantilla` WRITE;
+/*!40000 ALTER TABLE `configuracion_plantilla` DISABLE KEYS */;
+/*!40000 ALTER TABLE `configuracion_plantilla` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `detalle`
@@ -69,6 +75,10 @@ CREATE TABLE `detalle` (
 -- Dumping data for table `detalle`
 --
 
+LOCK TABLES `detalle` WRITE;
+/*!40000 ALTER TABLE `detalle` DISABLE KEYS */;
+/*!40000 ALTER TABLE `detalle` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `historial_plantlla`
@@ -93,6 +103,10 @@ CREATE TABLE `historial_plantlla` (
 -- Dumping data for table `historial_plantlla`
 --
 
+LOCK TABLES `historial_plantlla` WRITE;
+/*!40000 ALTER TABLE `historial_plantlla` DISABLE KEYS */;
+/*!40000 ALTER TABLE `historial_plantlla` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `opciones`
@@ -112,7 +126,11 @@ CREATE TABLE `opciones` (
 -- Dumping data for table `opciones`
 --
 
+LOCK TABLES `opciones` WRITE;
+/*!40000 ALTER TABLE `opciones` DISABLE KEYS */;
 INSERT INTO `opciones` VALUES (1,'REGISTRAR_PLANTILLA'),(2,'MODIFICAR_PLANTILLA'),(3,'LISTAR_PLANTILLA'),(4,'GENERAR_REPORTE'),(5,'ELIMINAR_PLANTILLA');
+/*!40000 ALTER TABLE `opciones` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `plantilla`
@@ -130,15 +148,21 @@ CREATE TABLE `plantilla` (
   `P_N_FOOTER` int(11) DEFAULT NULL COMMENT 'Nivel del footer : 0,1,2,3,4',
   `P_N_DETAIL` int(11) DEFAULT NULL COMMENT 'Nivel del detail : 0,1',
   `P_ESTADO` char(1) DEFAULT NULL COMMENT 'E: eliminado',
+  `P_FECHA` datetime DEFAULT NULL,
   PRIMARY KEY (`P_ID`),
   UNIQUE KEY `P_NOMBRE_UNIQUE` (`P_NOMBRE`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `plantilla`
 --
 
+LOCK TABLES `plantilla` WRITE;
+/*!40000 ALTER TABLE `plantilla` DISABLE KEYS */;
+INSERT INTO `plantilla` VALUES (1,'plantilla','consulta','campo',2,2,0,'1','2014-11-26 01:00:00');
+/*!40000 ALTER TABLE `plantilla` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `rol`
@@ -158,7 +182,11 @@ CREATE TABLE `rol` (
 -- Dumping data for table `rol`
 --
 
+LOCK TABLES `rol` WRITE;
+/*!40000 ALTER TABLE `rol` DISABLE KEYS */;
 INSERT INTO `rol` VALUES (1,'ADMINISTRADOR'),(2,'OPERADOR');
+/*!40000 ALTER TABLE `rol` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `rol_opciones`
@@ -182,7 +210,11 @@ CREATE TABLE `rol_opciones` (
 -- Dumping data for table `rol_opciones`
 --
 
+LOCK TABLES `rol_opciones` WRITE;
+/*!40000 ALTER TABLE `rol_opciones` DISABLE KEYS */;
 INSERT INTO `rol_opciones` VALUES (1,1),(1,2);
+/*!40000 ALTER TABLE `rol_opciones` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `usuario`
@@ -209,7 +241,12 @@ CREATE TABLE `usuario` (
 -- Dumping data for table `usuario`
 --
 
+LOCK TABLES `usuario` WRITE;
+/*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
 INSERT INTO `usuario` VALUES ('carlos_01','carlos','ochoa','aly','carlos','A',2),('lucero_01','lucero','arcadio','rosas','lucero','I',1),('omar_01','omar','cuba','estrella','omar','A',NULL),('willians_01','willian','castillo','ponce','willian','A',1);
+/*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
@@ -219,4 +256,4 @@ INSERT INTO `usuario` VALUES ('carlos_01','carlos','ochoa','aly','carlos','A',2)
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed
+-- Dump completed on 2014-11-27 11:59:03

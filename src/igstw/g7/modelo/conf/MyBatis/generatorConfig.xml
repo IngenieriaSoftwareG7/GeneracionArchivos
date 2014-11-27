@@ -33,17 +33,19 @@
            selectByExampleQueryId="false" enableSelectByExample="false" modelType="flat">  
       <property name="useActualColumnNames" value="true" />  
     </table> -->
-    <!-- Generamos el código fuente de Usuario-->
-    <table schema="generador" tableName="usuario" enableCountByExample="false" enableDeleteByExample="false"   
+    <!-- Generamos el código fuente de Plantilla-->
+    <table schema="generador" tableName="Plantilla" enableCountByExample="false" enableDeleteByExample="false"   
            enableUpdateByExample="false" selectByPrimaryKeyQueryId="false"   
            selectByExampleQueryId="false" enableSelectByExample="false" modelType="flat">
-      <columnOverride column="u_cod" property="codigo" />
-      <columnOverride column="u_nom" property="nombre" />
-      <columnOverride column="u_ape_pat" property="apePaterno" />
-      <columnOverride column="u_ape_mat" property="apeMaterno" />
-      <columnOverride column="u_con" property="clave" />
-      <columnOverride column="u_estado" property="estado" />
-      <columnOverride column="rol_id" property="rol" />
+      <columnOverride column="p_id" property="p_id" />
+      <columnOverride column="p_nombre" property="p_nombre" />
+      <columnOverride column="p_consulta_select" property="p_consulta_select" />
+      <columnOverride column="p_consulta_order" property="p_consulta_order" />
+      <columnOverride column="p_n_header" property="p_n_header" />
+      <columnOverride column="p_n_footer" property="p_n_footer" />
+      <columnOverride column="p_n_detail" property="p_n_detail" />
+      <columnOverride column="p_estado" property="p_estado" />
+      <columnOverride column="p_fecha" property="p_fecha" />
     </table>
   </context>
 </generatorConfiguration>

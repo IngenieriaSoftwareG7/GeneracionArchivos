@@ -5,21 +5,36 @@
   <PROCESS-ITEM ID="rules:#vistas#iniciarSesion.xhtml:0" NAME="item"
    PATH="/vistas/iniciarSesion.xhtml" model-entity="JSFProcessItem">
    <PROCESS-ITEM-OUTPUT
-    ID="irAMenuAdministrador::#vistas#administrador#menuAdministrador.xhtml"
-    NAME="output" PATH="/vistas/administrador/menuAdministrador.xhtml"
-    TARGET="rules:#vistas#administrador#menuAdministrador.xhtml"
+    ID="irAMenuAdministrador::#vistas#administrador#listarPlantillas.xhtml"
+    NAME="output" PATH="/vistas/administrador/listarPlantillas.xhtml"
+    TARGET="rules:#vistas#administrador#listarPlantillas.xhtml"
     TITLE="irAMenuAdministrador" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
-    ID="irAMenuOperador::#vistas#operador#menuOperador.xhtml"
-    NAME="output1" PATH="/vistas/operador/menuOperador.xhtml"
-    TARGET="rules:#vistas#operador#menuOperador.xhtml"
+    ID="irAMenuOperador::#vistas#operador#listarPlantillas.xhtml"
+    NAME="output1" PATH="/vistas/operador/listarPlantillas.xhtml"
+    TARGET="rules:#vistas#operador#listarPlantillas.xhtml"
     TITLE="irAMenuOperador" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#vistas#*" PATH="/vistas/*"
+  SHAPE="32,161,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#vistas#*:0" NAME="item" PATH="/vistas/*" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="cerrarSesion::#vistas#iniciarSesion.xhtml"
+    NAME="output" PATH="/vistas/iniciarSesion.xhtml"
+    TARGET="rules:#vistas#iniciarSesion.xhtml" TITLE="cerrarSesion" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="registrarNuevaPlantilla::#vistas#administrador#registrarPlantilla.xhtml"
+    NAME="output1" PATH="/vistas/administrador/registrarPlantilla.xhtml"
+    TARGET="rules:#vistas#administrador#registrarPlantilla.xhtml"
+    TITLE="registrarNuevaPlantilla" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#vistas#administrador#listarPlantillas.xhtml"
+  PATH="/vistas/administrador/listarPlantillas.xhtml" SHAPE="48,273,0,0" model-entity="JSFProcessGroup"/>
  <PROCESS-ITEM
-  NAME="rules:#vistas#administrador#menuAdministrador.xhtml"
-  PATH="/vistas/administrador/menuAdministrador.xhtml"
-  SHAPE="256,33,0,0" model-entity="JSFProcessGroup"/>
- <PROCESS-ITEM NAME="rules:#vistas#operador#menuOperador.xhtml"
-  PATH="/vistas/operador/menuOperador.xhtml" SHAPE="256,177,0,0" model-entity="JSFProcessGroup"/>
+  NAME="rules:#vistas#administrador#registrarPlantilla.xhtml"
+  PATH="/vistas/administrador/registrarPlantilla.xhtml"
+  SHAPE="240,289,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#vistas#operador#listarPlantillas.xhtml"
+  PATH="/vistas/operador/listarPlantillas.xhtml" SHAPE="256,33,0,0" model-entity="JSFProcessGroup"/>
 </PROCESS>

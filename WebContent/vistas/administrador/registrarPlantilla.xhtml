@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<title>Administrador</title>
+	<link rel="stylesheet" type="text/css"
+		href="../../recursos/css/estructuraMenu.css" />
+</h:head>
+<h:body>
+	<div id="wrapper">
+		<div id="header">
+			<ui:include src="/vistas/headerPage.xhtml" />
+		</div>
+		<div id="body">
+			<h:form method="post">
+
+				<p:growl id="growl" showDetail="true" life="3000" />
+
+				<p:panel header="Registrar Plantilla"
+					style="padding: 10px 10px 10px 10px;float:left;">
+					<h:panelGrid columns="2">
+						<p:outputLabel value="Nombre de Plantilla:" />
+						<p:inputText value="" />
+					</h:panelGrid>
+					<p:panel header="Consulta SQL">
+						<h:panelGrid columns="2">
+							<p:outputLabel value="Select:" />
+							<p:inputText value="" />
+							<p:outputLabel value="Order By : " />
+							<p:inputText value="" />
+						</h:panelGrid>
+					</p:panel>
+					<h:panelGrid columns="4">
+						<p:outputLabel value="Estado:" />
+						<p:inputText value="" />
+						<p:commandButton value="Procesar SQL" />
+						<p:commandButton value="Limpiar" />
+					</h:panelGrid>
+					<p:panel header="Configuración" style="float:left;">
+						<h:panelGrid columns="2" style="margin-bottom:10px"
+							cellpadding="5">
+							<p:selectManyCheckbox id="basic"
+								value="#{checkboxView.selectedConsoles}" columns="1">
+								<f:selectItem itemLabel="Header" itemValue="Header" />
+								<f:selectItem itemLabel="Details" itemValue="Details" />
+								<f:selectItem itemLabel="Footer" itemValue="Footer" />
+							</p:selectManyCheckbox>
+						</h:panelGrid>
+					</p:panel>
+					<p:panel style="float:left;padding:10px;">
+						<p:commandButton value="Guardar" />
+						<p:commandButton value="Cancelar" />
+					</p:panel>
+				</p:panel>
+			</h:form>
+		</div>
+		<div id="footer">
+			<ui:include src="/vistas/footerPage.xhtml" />
+		</div>
+	</div>
+
+</h:body>
+</html>

@@ -1,51 +1,71 @@
-<ui:composition xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:f="http://java.sun.com/jsf/core"
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:p="http://primefaces.org/ui">
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<title>Administrador</title>
+	<link rel="stylesheet" type="text/css"
+		href="../../recursos/css/estructuraMenu.css" />
+</h:head>
+<h:body>
+	<div id="wrapper">
+		<div id="header">
+			<ui:include src="/vistas/headerPage.xhtml" />
+		</div>
+		<div id="body">
+			<h:form method="post">
 
-	<h:form method="post">
+				<p:growl id="growl" showDetail="true" life="3000" />
 
-		<p:growl id="growl" showDetail="true" life="3000" />
-		
-		<p:panel header="Lista Plantillas"
-			style="width: 1000px;
-				float:left;left:10%;">
+				<p:panel header="Lista Plantillas"
+					style="padding: 10px 10px 10px 10px;float:left;">
+					<hr></hr>
+					<p:dataTable id="listaPlantillas" paginator="true" var="plantilla"
+						value="#{listarPlantillaMB.plantillas}"
+						emptyMessage="No hay plantillas registradas" rows="5"
+						resizableColumns="true" style="padding: 10px 10px 10px 10px;">
+						<p:column headerText="FECHA">
+							<h:outputText value="#{plantilla.p_fecha}">
+								<f:convertDateTime pattern="dd/MM/yyyy" />
+							</h:outputText>
+						</p:column>
 
-			<hr></hr>
+						<p:column headerText="NOMBRE">
+							<h:outputText value="#{plantilla.p_nombre}" />
+						</p:column>
 
-			<p:dataTable var="car" value="#{dtBasicView.cars}">
-				<p:column headerText="FECHA">
-					<h:outputText value="#{car.id}" />
-				</p:column>
+						<p:column headerText="ESTADO">
+							<h:outputText value="#{plantilla.p_estado}" />
+						</p:column>
 
-				<p:column headerText="NOMBRE">
-					<h:outputText value="#{car.year}" />
-				</p:column>
+						<p:column headerText="NIVEL DE HEADER">
+							<h:outputText value="#{plantilla.p_n_header}" />
+						</p:column>
 
-				<p:column headerText="ESTADO">
-					<h:outputText value="#{car.brand}" />
-				</p:column>
+						<p:column headerText="NIVEL DE DETAILS">
+							<h:outputText value="#{plantilla.p_n_detail}" />
+						</p:column>
 
-				<p:column headerText="HEADER">
-					<h:outputText value="#{car.color}" />
-				</p:column>
+						<p:column headerText="NIVEL DE FOOTER">
+							<h:outputText value="#{plantilla.p_n_footer}" />
+						</p:column>
+					</p:dataTable>
 
-				<p:column headerText="DETAIL">
-					<h:outputText value="#{car.color}" />
-				</p:column>
+					<p:commandButton value="Consultar"></p:commandButton>
+					<p:commandButton value="Registrar" action="registrarNuevaPlantilla"></p:commandButton>
+					<p:commandButton value="Modificar"></p:commandButton>
+					<p:commandButton value="Eliminar"></p:commandButton>
 
-				<p:column headerText="FOOTER">
-					<h:outputText value="#{car.color}" />
-				</p:column>
-			</p:dataTable>
+				</p:panel>
+			</h:form>
+		</div>
+		<div id="footer">
+			<ui:include src="/vistas/footerPage.xhtml" />
+		</div>
+	</div>
 
-			<p:button value="Consulta"></p:button>
-			<p:button value="Nuevo"></p:button>
-			<p:button value="Modificar"></p:button>
-			<p:button value="Eliminar"></p:button>
-
-		</p:panel>
-	</h:form>
-
-</ui:composition>
+</h:body>
+</html>

@@ -14,29 +14,29 @@
 
 			<hr></hr>
 
-			<p:dataTable var="car" value="#{dtBasicView.cars}">
+			<p:dataTable var="plantilla" value="#{dtBasicView.plantillas}">
 				<p:column headerText="FECHA">
-					<h:outputText value="#{car.id}" />
+					<h:outputText value="#{plantilla.id}" />
 				</p:column>
 
 				<p:column headerText="NOMBRE">
-					<h:outputText value="#{car.year}" />
+					<h:outputText value="#{plantilla.year}" />
 				</p:column>
 
 				<p:column headerText="ESTADO">
-					<h:outputText value="#{car.brand}" />
+					<h:outputText value="#{plantilla.brand}" />
 				</p:column>
 
 				<p:column headerText="HEADER">
-					<h:outputText value="#{car.color}" />
+					<h:outputText value="#{plantilla.color}" />
 				</p:column>
 
 				<p:column headerText="DETAIL">
-					<h:outputText value="#{car.color}" />
+					<h:outputText value="#{plantilla.color}" />
 				</p:column>
 
 				<p:column headerText="FOOTER">
-					<h:outputText value="#{car.color}" />
+					<h:outputText value="#{plantilla.color}" />
 				</p:column>
 			</p:dataTable>
 
