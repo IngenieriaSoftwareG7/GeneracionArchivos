@@ -96,4 +96,15 @@ public class Plantilla {
     public void setP_fecha(Date p_fecha) {
         this.p_fecha = p_fecha;
     }
+
+	public List<ConfiguracionPlantilla> getConfiguracionPlantillas() {
+		return configuracionPlantillas;
+	}
+
+	public void setConfiguracionPlantillas(
+			List<ConfiguracionPlantilla> configuracionPlantillas) {
+		this.configuracionPlantillas = configuracionPlantillas;
+	}
+    
+    
 }

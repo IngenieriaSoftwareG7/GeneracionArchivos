@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<title>Administrador</title>
+	<link rel="stylesheet" type="text/css"
+		href="../../recursos/css/estructuraMenu.css" />
+</h:head>
+<h:body>
+	<div id="wrapper">
+		<div id="header">
+			<ui:include src="/vistas/headerPage.xhtml" />
+		</div>
+		<div id="body">
+			<h:form method="post">
+
+				<p:growl id="growl" showDetail="true" life="3000" />
+
+					<p:accordionPanel value="#{tabbedView.cars}" var="car">
+					
+        			<p:tab title="Car - #{car.id}">
+            		<h:panelGrid columns="2" cellpadding="5">
+                		<f:facet name="header">
+                    	
+                		</f:facet>                    
+               			<h:outputText value="Brand:" style="font-weight: bold" />
+                		<h:outputText value="#{car.brand}" />
+ 
+                		<h:outputText value="Year:" style="font-weight: bold" />
+                		<h:outputText value="#{car.year}" />
+ 
+                		<h:outputText value="Color:" style="font-weight: bold" />
+                		<h:outputText value="#{car.color}" />
+            		</h:panelGrid>
+        			</p:tab>
+    				</p:accordionPanel>
+
+					
+					<p:commandButton value="Registrar" icon="ui-icon-plusthick" action="registrarNuevaPlantilla"></p:commandButton>
+					
+
+				</p:panel>
+			</h:form>
+		</div>
+		<div id="footer">
+			<ui:include src="/vistas/footerPage.xhtml" />
+		</div>
+	</div>
+
+</h:body>
+</html>
