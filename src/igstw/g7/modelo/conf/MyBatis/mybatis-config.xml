@@ -8,6 +8,10 @@ PUBLIC "-//mybatis.org//DTD 3.0//EN"
   		<typeAlias type='igstw.g7.modelo.pojos.Usuario' alias='UsuarioAlias'/>	
   		<typeAlias type='igstw.g7.modelo.pojos.Plantilla' alias='PlantillaAlias'/>	
   		<typeAlias type='igstw.g7.modelo.pojos.Rol' alias='RolAlias'/>
+		<typeAlias type="igstw.g7.modelo.pojos.SQLAdapter"  alias="SQLAdapter"/>  		
+		<typeAlias type="igstw.g7.modelo.pojos.ConfiguracionPlantilla"  alias="ConfiguracionPlantilla"/>
+		<typeAlias type="igstw.g7.modelo.pojos.Detalle"  alias="Detalle"/>  		
+	
 	</typeAliases>
     <environments default="development">
         <environment id="development">

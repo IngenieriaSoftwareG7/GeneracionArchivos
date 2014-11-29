@@ -29,5 +29,10 @@
 			<to-view-id>/vistas/administrador/registrarPlantilla.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
+		<navigation-case>
+			<from-outcome>volverAListarPlantillas</from-outcome>
+			<to-view-id>/vistas/administrador/listarPlantillas.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
 	</navigation-rule>
 </faces-config>

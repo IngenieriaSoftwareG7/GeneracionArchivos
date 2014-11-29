@@ -13,22 +13,28 @@ import javax.faces.bean.SessionScoped;
 
 @ManagedBean
 @SessionScoped
-public class ListarPlantillaMB {
+public class PlantillaMB {
 	PlantillaDao plantillaDao=null;
 	List<Plantilla> plantillas=null;
-	public  ListarPlantillaMB() {
+	Plantilla plantilla=null;
+	public  PlantillaMB() {
 		init();
 	}
 
 	private void init() {
-		plantillaDao = new PlantillaDaoImpl();
-		cargarPlantillas();
+		cargarDatos();
 	}
-	public void cargarPlantillas(){
+	public void cargarDatos(){
+		if(plantilla==null)
+			plantilla=new Plantilla();
+		if(plantillaDao==null)
+			plantillaDao = new PlantillaDaoImpl();
 		if(plantillas==null)
 			plantillas=plantillaDao.obtenerPlantillas();
 	}
-
+	public void registrarNuevaPlantilla(){
+		boolean exitoRegPlantilla=plantillaDao.registrarNuevaPlantilla(plantilla);
+	}
 	public PlantillaDao getPlantillaDao() {
 		return plantillaDao;
 	}
@@ -43,6 +49,14 @@ public class ListarPlantillaMB {
 
 	public void setPlantillas(List<Plantilla> plantillas) {
 		this.plantillas = plantillas;
+	}
+
+	public Plantilla getPlantilla() {
+		return plantilla;
+	}
+
+	public void setPlantilla(Plantilla plantilla) {
+		this.plantilla = plantilla;
 	}
 	
 }

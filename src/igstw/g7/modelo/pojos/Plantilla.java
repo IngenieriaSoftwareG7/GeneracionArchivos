@@ -1,6 +1,7 @@
 package igstw.g7.modelo.pojos;
 
 import java.util.Date;
+import java.util.List;
 
 public class Plantilla {
     private Integer p_id;
@@ -20,6 +21,9 @@ public class Plantilla {
     private String p_estado;
 
     private Date p_fecha;
+    
+    private List<ConfiguracionPlantilla> configuracionPlantillas;
+    
 
     public Integer getP_id() {
         return p_id;

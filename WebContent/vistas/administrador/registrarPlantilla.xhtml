@@ -21,40 +21,56 @@
 				<p:growl id="growl" showDetail="true" life="3000" />
 
 				<p:panel header="Registrar Plantilla"
-					style="padding: 10px 10px 10px 10px;float:left;">
-					<h:panelGrid columns="2">
+					style="padding: 10px 10px 10px 10px;width:90%;float:left;">
+					<h:panelGrid columns="2" style="width:90%;">
 						<p:outputLabel value="Nombre de Plantilla:" />
-						<p:inputText value="" />
+						<p:inputText  value="#{plantillaMB.plantilla.p_nombre}" style="width:90%" />
 					</h:panelGrid>
-					<p:panel header="Consulta SQL">
-						<h:panelGrid columns="2">
+					<p:spacer width="0" height="20" />
+					<p:panel header="Consulta SQL" style="width:90%;">
+						<h:panelGrid columns="2" style="width:90%;">
 							<p:outputLabel value="Select:" />
-							<p:inputText value="" />
+							<p:inputText  value="#{plantillaMB.plantilla.p_consulta_select}" style="width:90%" />
 							<p:outputLabel value="Order By : " />
-							<p:inputText value="" />
+							<p:inputText value="#{plantillaMB.plantilla.p_consulta_order}" style="width:90%" />
+						</h:panelGrid>
+						<p:separator />
+						<h:panelGrid columns="4" style="width:90%;">
+							<p:outputLabel value="Estado:" />
+
+							<p:inputText readonly="true"
+								style="width:70%;background-color:LightGray" />
+							<p:commandButton value="Procesar SQL" icon="ui-icon-eject"/>
+							<p:commandButton value="Limpiar" icon=" ui-icon-trash"/>
 						</h:panelGrid>
 					</p:panel>
-					<h:panelGrid columns="4">
-						<p:outputLabel value="Estado:" />
-						<p:inputText value="" />
-						<p:commandButton value="Procesar SQL" />
-						<p:commandButton value="Limpiar" />
-					</h:panelGrid>
-					<p:panel header="Configuración" style="float:left;">
-						<h:panelGrid columns="2" style="margin-bottom:10px"
+					<p:spacer width="0" height="20" />
+					<p:panel header="Configuración">
+						<h:panelGrid columns="5" style="margin-bottom:10px"
 							cellpadding="5">
-							<p:selectManyCheckbox id="basic"
-								value="#{checkboxView.selectedConsoles}" columns="1">
-								<f:selectItem itemLabel="Header" itemValue="Header" />
-								<f:selectItem itemLabel="Details" itemValue="Details" />
-								<f:selectItem itemLabel="Footer" itemValue="Footer" />
-							</p:selectManyCheckbox>
+							<p:selectBooleanCheckbox  />
+							<h:outputText value="Header: " />
+							<h:outputText value="Nivel: " />
+							<p:spinner id="nivelHeader" value="#{plantillaMB.plantilla.p_n_header}" min="1" max="4" />
+							<p:commandButton value="Configurar" icon="ui-icon-gear"/>
+							<p:selectBooleanCheckbox  />
+							<h:outputText value="Details: " />
+							<p:spacer/>
+							<p:spacer/>
+							<p:commandButton value="Configurar" icon="ui-icon-gear"/>
+							<p:selectBooleanCheckbox  />
+							<h:outputText value="Footer: " />
+							<h:outputText value="Nivel: " />
+							<p:spinner id="nivelFooter" value="#{plantillaMB.plantilla.p_n_footer}" min="1" max="4" />
+							
+							<p:commandButton value="Configurar" icon="ui-icon-gear"/>
 						</h:panelGrid>
 					</p:panel>
-					<p:panel style="float:left;padding:10px;">
-						<p:commandButton value="Guardar" />
-						<p:commandButton value="Cancelar" />
-					</p:panel>
+					<p:spacer width="0" height="30" />
+					<p:commandButton value="Volver a Lista" action="volverAListarPlantillas" icon="ui-icon-arrowreturnthick-1-w"/>
+					<p:spacer width="700" height="0" />
+					<p:commandButton value="Guardar" actionListener="#{plantillaMB.registrarNuevaPlantilla}" icon="ui-icon-disk"/>
+					<p:commandButton value="Cancelar" icon="ui-icon-cancel"/>
 				</p:panel>
 			</h:form>
 		</div>

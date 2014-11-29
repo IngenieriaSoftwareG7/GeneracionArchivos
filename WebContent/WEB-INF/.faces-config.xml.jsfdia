@@ -27,6 +27,11 @@
     NAME="output1" PATH="/vistas/administrador/registrarPlantilla.xhtml"
     TARGET="rules:#vistas#administrador#registrarPlantilla.xhtml"
     TITLE="registrarNuevaPlantilla" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="volverAListarPlantillas::#vistas#administrador#listarPlantillas.xhtml"
+    NAME="output2" PATH="/vistas/administrador/listarPlantillas.xhtml"
+    TARGET="rules:#vistas#administrador#listarPlantillas.xhtml"
+    TITLE="volverAListarPlantillas" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules:#vistas#administrador#listarPlantillas.xhtml"

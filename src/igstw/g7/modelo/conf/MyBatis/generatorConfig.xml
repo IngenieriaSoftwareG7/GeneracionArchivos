@@ -34,18 +34,30 @@
       <property name="useActualColumnNames" value="true" />  
     </table> -->
     <!-- Generamos el código fuente de Plantilla-->
-    <table schema="generador" tableName="Plantilla" enableCountByExample="false" enableDeleteByExample="false"   
+    <table schema="generador" tableName="Configuracion_Plantilla" enableCountByExample="false" enableDeleteByExample="false"   
            enableUpdateByExample="false" selectByPrimaryKeyQueryId="false"   
            selectByExampleQueryId="false" enableSelectByExample="false" modelType="flat">
-      <columnOverride column="p_id" property="p_id" />
-      <columnOverride column="p_nombre" property="p_nombre" />
-      <columnOverride column="p_consulta_select" property="p_consulta_select" />
-      <columnOverride column="p_consulta_order" property="p_consulta_order" />
-      <columnOverride column="p_n_header" property="p_n_header" />
-      <columnOverride column="p_n_footer" property="p_n_footer" />
-      <columnOverride column="p_n_detail" property="p_n_detail" />
-      <columnOverride column="p_estado" property="p_estado" />
-      <columnOverride column="p_fecha" property="p_fecha" />
+      <columnOverride column="c_tipo" property="c_tipo" />
+      <columnOverride column="c_nivel" property="c_nivel" />
+      <columnOverride column="c_estado" property="c_estado" />
+      <columnOverride column="pla_id" property="pla_id" />
+    </table>
+    <table schema="generador" tableName="Detalle" enableCountByExample="false" enableDeleteByExample="false"   
+           enableUpdateByExample="false" selectByPrimaryKeyQueryId="false"   
+           selectByExampleQueryId="false" enableSelectByExample="false" modelType="flat">
+      <columnOverride column="d_nombre" property="d_nombre" />
+      <columnOverride column="d_campo" property="d_campo" />
+      <columnOverride column="d_orden" property="d_orden" />
+      <columnOverride column="d_tamanio" property="d_tamanio" />
+      <columnOverride column="d_tipo" property="d_tipo" />
+      <columnOverride column="d_cifrado" property="d_cifrado" />
+      <columnOverride column="d_transforma" property="d_transforma" />
+      <columnOverride column="d_trans_ori" property="d_trans_ori" />
+      <columnOverride column="d_sumador" property="d_sumador" />
+      <columnOverride column="d_contador" property="d_contador" />
+      <columnOverride column="con_tipo" property="con_tipo" />
+      <columnOverride column="con_nivel" property="con_nivel" />
+      <columnOverride column="con_pla_id" property="con_pla_id" />
     </table>
   </context>
 </generatorConfiguration>

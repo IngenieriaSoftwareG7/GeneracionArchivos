@@ -21,12 +21,12 @@
 				<p:growl id="growl" showDetail="true" life="3000" />
 
 				<p:panel header="Lista Plantillas"
-					style="padding: 10px 10px 10px 10px;float:left;">
+					style="padding: 10px 10px 10px 10px;width:95%;height:80%;float:left;">
 					<hr></hr>
 					<p:dataTable id="listaPlantillas" paginator="true" var="plantilla"
-						value="#{listarPlantillaMB.plantillas}"
+						value="#{plantillaMB.plantillas}"
 						emptyMessage="No hay plantillas registradas" rows="5"
-						resizableColumns="true" style="padding: 10px 10px 10px 10px;">
+						style="padding: 10px 10px 10px 10px;">
 						<p:column headerText="FECHA">
 							<h:outputText value="#{plantilla.p_fecha}">
 								<f:convertDateTime pattern="dd/MM/yyyy" />
@@ -54,10 +54,10 @@
 						</p:column>
 					</p:dataTable>
 
-					<p:commandButton value="Consultar"></p:commandButton>
-					<p:commandButton value="Registrar" action="registrarNuevaPlantilla"></p:commandButton>
-					<p:commandButton value="Modificar"></p:commandButton>
-					<p:commandButton value="Eliminar"></p:commandButton>
+					<p:commandButton value="Consultar" icon="ui-icon-search"></p:commandButton>
+					<p:commandButton value="Registrar" icon="ui-icon-plusthick" action="registrarNuevaPlantilla"></p:commandButton>
+					<p:commandButton value="Modificar " icon="ui-icon-pencil"></p:commandButton>
+					<p:commandButton value="Eliminar" icon="ui-icon-closethick"></p:commandButton>
 
 				</p:panel>
 			</h:form>

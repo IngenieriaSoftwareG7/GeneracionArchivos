@@ -4,4 +4,50 @@
  	<select id="obtenerPlantillas" resultType="PlantillaAlias" >
         select * from plantilla 
     </select>
+    <insert id="registrarNuevaPlantilla" useGeneratedKeys="true" keyProperty="p_id" parameterType="PlantillaAlias">
+    	insert into plantilla(p_nombre,p_consulta_select,p_consulta_order,p_n_header,p_n_detail,p_n_footer,p_estado,p_fecha) 
+    	values(#{p_nombre,jdbcType=VARCHAR},#{p_consulta_select,jdbcType=VARCHAR},#{p_consulta_order,jdbcType=VARCHAR},
+    	#{p_n_header},#{p_n_detail},#{p_n_footer},#{p_estado,jdbcType=VARCHAR},#{p_estado,jdbcType=DATE})
+    </insert>
+    <select id="ejecutarSQL" parameterType="SQLAdapter" resultType="hashmap">  
+    	${sql}  
+	</select>
+	
+	
+	<resultMap id="plantillaMapa" type="PlantillaAlias">
+		<id property="p_id" column="p_id" />
+		<result property="p_nombre" column="p_nombre"/>
+		<result property="p_consulta_select" column="p_consulta_select"/>
+		<result property="p_consulta_order" column="p_consulta_order"/>
+		<result property="p_n_header" column="p_n_header"/>
+		<result property="p_n_footer" column="p_n_footer"/>
+		<result property="p_n_detail" column="p_n_detail"/>
+		<result property="p_estado" column="p_estado"/>
+		<result property="p_fecha" column="p_fecha"/>
+		<collection property="configuracionPlantillas" ofType="ConfiguracionPlantilla">
+		<result property="c_tipo" column="post_subject"/>
+		<result property="c_nivel" column="post_subject"/>
+		<result property="pla_id" column="post_subject"/>
+		<result property="c_estado" column="post_subject"/>
+		<collection property="listadetalle" ofType="Detalle">
+		<result property="d_orden" column="d_orden"/>
+		<result property="con_pla_id" column="con_plan_id"/>
+		<result property="con_nivel" column="con_nivel"/>
+		<result property="con_tipo" column="con_tipo"/>
+		<result property="d_nombre" column="d_nombre"/>
+		<result property="d_campo" column="d_campo"/>
+		<result property="d_tamanio" column="d_tamanio"/>
+		<result property="d_tipo" column="d_tipo"/>
+		<result property="d_cifrado" column="d_cifrado"/>
+		<result property="d_transforma" column="d_transforma"/>
+		<result property="d_trans_ori" column="d_trans_ori"/>
+		<result property="d_sumador" column="d_sumador"/>
+		
+		</collection>
+		</collection>
+	</resultMap>
+	<select id="obtenerPlantillasConConfiguracion" resultMap="plantillaMapa" >
+        select * from plantilla inner join configuracion_plantilla on pla_id=p_id inner join detalle on (con_pla_id=pla_id) ;
+    </select>
+    
 </mapper>
